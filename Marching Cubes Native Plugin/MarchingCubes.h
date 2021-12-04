@@ -1,4 +1,27 @@
 #pragma once
+#include "pch.h"
+
+template<typename T>
+struct Vector3 {
+	T x, y, z;
+
+	Vector3();
+
+	Vector3(T x, T y, T z);
+
+	Vector3<T> operator+(const Vector3<T>& other);
+};
+
+typedef Vector3<float> Vector3F;
+typedef Vector3<int> Vector3I;
+
+struct Voxel {
+	Vector3F position;
+	float value;
+};
+
+int edgeTable[256];
+int indexTable[256][16];
 
 template<typename T>
 struct Vector3 {
