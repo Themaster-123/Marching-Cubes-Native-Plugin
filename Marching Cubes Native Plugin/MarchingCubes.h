@@ -1,5 +1,4 @@
 #pragma once
-#include "pch.h"
 
 template<typename T>
 struct Vector3 {
@@ -20,8 +19,8 @@ struct Voxel {
 	float value;
 };
 
-int edgeTable[256];
-int indexTable[256][16];
+extern int edgeTable[256];
+extern int indexTable[256][16];
 
 extern "C" {
 	__declspec(dllexport) void mcMarchingCubes(float isoLevel, const Vector3I& resolution, const Voxel*& voxels, Vector3F*& vertices, int*& triangles, int* length, std::vector<Vector3F>*& verticesList, std::vector<int>*& trianglesList);
