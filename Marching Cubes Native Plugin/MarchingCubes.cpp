@@ -367,18 +367,16 @@ void triangulateCell(float isoLevel, const Voxel& voxel0, const Voxel& voxel1, c
 	if ((edgeTable[cubeIndex] & 1024) != 0) verticesArray[10] = interpolateVertexPosition(voxel2, voxel6, isoLevel);
 	if ((edgeTable[cubeIndex] & 2048) != 0) verticesArray[11] = interpolateVertexPosition(voxel3, voxel7, isoLevel);
 
-	int rowIndex = 16 * cubeIndex;
-
-	for (int i = 0; indexTable[rowIndex][i] != -1; i += 3)
+	for (int i = 0; indexTable[cubeIndex][i] != -1; i += 3)
 	{
 
 		triangles.push_back(vertices.size());
 		triangles.push_back(vertices.size() + 1);
 		triangles.push_back(vertices.size() + 2);
 
-		vertices.push_back(verticesArray[indexTable[rowIndex][i]]);
-		vertices.push_back(verticesArray[indexTable[rowIndex][i + 1]]);
-		vertices.push_back(verticesArray[indexTable[rowIndex][i + 2]]);
+		vertices.push_back(verticesArray[indexTable[cubeIndex][i]]);
+		vertices.push_back(verticesArray[indexTable[cubeIndex][i + 1]]);
+		vertices.push_back(verticesArray[indexTable[cubeIndex][i + 2]]);
 	}
 
 }
